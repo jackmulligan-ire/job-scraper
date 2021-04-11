@@ -24,7 +24,7 @@ filter_search(search_term, filter_term, country, city, number_pages=10)
 
 -filter_term: str, term you want to filter for e.g. "junior"
 
-exclude_search(search_term, exclude_term, country, city, number_pages)
+exclude_search(search_term, exclude_term, country, city, number_pages=10)
 
 -search_term: str, the term(s) you want to search for e.g. "backend+developer"
 
