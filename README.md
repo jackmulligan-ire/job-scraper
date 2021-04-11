@@ -4,6 +4,7 @@ Learned: functional programming, making http requests, writing to a .csv file, u
 # Functions available:
 
 search(search_term, country, city, number_pages=10)
+
 -search_term: str, the term you want to search for e.g. "backend+developer"
 
 -country: str, country code of indeed site e.g. "ie" for Ireland
