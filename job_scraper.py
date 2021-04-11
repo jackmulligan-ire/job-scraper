@@ -24,6 +24,7 @@ def search(search_term, country, city, number_pages=10):
     -city: str, city you want to search in e.g. "dublin"
     -number_pages: int (default=10), number of search result pages you want to search
     '''
+    print("Starting!")
     
     #Start with first 10 pages
     m = 0
@@ -33,8 +34,10 @@ def search(search_term, country, city, number_pages=10):
         with requests.Session() as s:
             #Changing URL in the loop
             URL = 'https://' + country.lower() + '.indeed.com/jobs?q=+' + search_term + '&sort=date&l=' + city.lower() + '&start=' + str(m)
-            #&sort=date (Sorted by date)
-            print("The URL is: " + str(URL))
+            
+            URL_nr = int(m/10)
+            print("Getting URL " + str(URL_nr))
+            
             m+=10
             
             p = s.get(URL)
@@ -110,15 +113,6 @@ def search(search_term, country, city, number_pages=10):
                 data['Posted'].append(age_elem) #Store age
                 data['Link'].append(href_elem) #Store link
                 
-                #PRINTING OFF JOBS IN CONSOLE
-                print("Job " + str(n)) 
-                print("Time: " + current_time) 
-                print("Title: " + str(title_elem.text.strip()))
-                print("Company: " + str(company_elem.text.strip()))
-                print("Country: " + str(country_elem.text.strip()))
-                print("Posted: " + str(age_elem))
-                print("Link: https://ie.indeed.com" + link_elem)
-                print("\n")
                 n += 1
             
             append_data(data)
@@ -136,6 +130,8 @@ def filter_search(search_term, filter_term, country, city, number_pages=10):
     -number_pages: int (default=10), number of search result pages you want to search
 
     '''
+    print("Starting!")
+    
     #Start with first 10 pages
     m = 0
     while m <= (number_pages * 10):
@@ -144,8 +140,10 @@ def filter_search(search_term, filter_term, country, city, number_pages=10):
         with requests.Session() as s:
             #Changing URL in the loop
             URL = 'https://' + country.lower() + '.indeed.com/jobs?q=+' + search_term + '&sort=date&l=' + city.lower() + '&start=' + str(m)
-            #&sort=date (Sorted by date)
-            print("The URL is: " + str(URL))
+            
+            URL_nr = int(m/10)
+            print("Getting URL " + str(URL_nr))
+            
             m+=10
             
             p = s.get(URL)
@@ -225,15 +223,6 @@ def filter_search(search_term, filter_term, country, city, number_pages=10):
                 data['Posted'].append(age_elem) #Store age
                 data['Link'].append(href_elem) #Store link
                 
-                #PRINTING OFF JOBS IN CONSOLE
-                print("Job " + str(n)) 
-                print("Time: " + current_time) 
-                print("Title: " + str(title_elem.text.strip()))
-                print("Company: " + str(company_elem.text.strip()))
-                print("Country: " + str(country_elem.text.strip()))
-                print("Posted: " + str(age_elem))
-                print("Link: https://ie.indeed.com" + link_elem)
-                print("\n")
                 n += 1
             
             append_data(data)
@@ -250,6 +239,8 @@ def exclude_search(search_term, exclude_term, country, city, number_pages=10):
     -number_pages: int (default=10), number of search result pages you want to search
     -exclude_term: str, term you want to exclude for e.g. "senior"
     '''
+    print("Starting!")
+    
     #Start with first 10 pages
     m = 0
     while m <= (number_pages * 10):
@@ -258,8 +249,10 @@ def exclude_search(search_term, exclude_term, country, city, number_pages=10):
         with requests.Session() as s:
             #Changing URL in the loop
             URL = 'https://' + country.lower() + '.indeed.com/jobs?q=+' + search_term + '&sort=date&l=' + city.lower() + '&start=' + str(m)
-            #&sort=date (Sorted by date)
-            print("The URL is: " + str(URL))
+            
+            URL_nr = int(m/10)
+            print("Getting URL " + str(URL_nr))
+            
             m+=10
             
             p = s.get(URL)
@@ -339,22 +332,13 @@ def exclude_search(search_term, exclude_term, country, city, number_pages=10):
                 data['Posted'].append(age_elem) #Store age
                 data['Link'].append(href_elem) #Store link
                 
-                #PRINTING OFF JOBS IN CONSOLE
-                print("Job " + str(n)) 
-                print("Time: " + current_time) 
-                print("Title: " + str(title_elem.text.strip()))
-                print("Company: " + str(company_elem.text.strip()))
-                print("Country: " + str(country_elem.text.strip()))
-                print("Posted: " + str(age_elem))
-                print("Link: https://ie.indeed.com" + link_elem)
-                print("\n")
                 n += 1
             
             append_data(data)
         
         write_data(city, search_term, extra_term=exclude_term)
 
-    clear_data(data) 
+    clear_data(data)
 
 #Modules - common to all functions
 def append_data(data):
@@ -464,3 +448,5 @@ def clear_data(data):
     #Clearing JSON file
     with open("data_file.json", 'w') as write_file:
         json.dump(data, write_file)
+        
+    print("Done!")
