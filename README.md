@@ -1,38 +1,18 @@
-# job-scraper
-Learned: functional programming, making http requests, writing to a .csv file, using JSON as a temporary place to store data.
+# job-scraper: Scrape indeed for relevant job postings.
+Scrapes job postings from indeed. You can search by country and city location. You'll find a general search function, as well as functions to include or exclude certain keywords. I've also written a programme that scrapes posts and analyses them for particular keywords. Written in Python 3.7! 
 
-# Functions available:
+Set-up: Change all directories to a file on your device.
 
-search(search_term, country, city, number_pages=10)
+Learned: Functional programming, making http requests, writing to a .csv file, using JSON, using random library, using time libraary.
 
--search_term: str, the term you want to search for e.g. "backend+developer"
+## Functions available in job-scraper.py:
 
--country: str, country code of indeed site e.g. "ie" for Ireland
+* `search(search_term, country, city, number_pages=10)`
 
--city: str, city you want to search in e.g. "dublin"
+* `filter_search(search_term, filter_term, country, city, number_pages=10)`
 
--number_pages: int (default=10), number of search result pages you want to search
+* `exclude_search(search_term, exclude_term, country, city, number_pages=10)`
 
-filter_search(search_term, filter_term, country, city, number_pages=10)
+## job-listing-analyser.py
 
--search_term: str, the term you want to search for e.g. "backend+developer"
-
--country: str, country code of indeed site e.g. "ie" for Ireland
-
--city: str, city you want to search in e.g. "dublin"
-
--number_pages: int (default=10), number of search result pages you want to search
-
--filter_term: str, term you want to filter for e.g. "junior"
-
-exclude_search(search_term, exclude_term, country, city, number_pages=10)
-
--search_term: str, the term(s) you want to search for e.g. "backend+developer"
-
--country: str, country code of indeed site e.g. "ie" for Ireland
-
--city: str, city you want to search in e.g. "dublin"
-
--number_pages: int (default=10), number of search result pages you want to search
-
--exclude_term: str, term you want to exclude for e.g. "senior"
+Listings analyser programme, based in console. Enter in search term, country and location to get started. You'll then be prompted to input number of scraped listings to be more closely analysed, as well as the keywords you'd like to analyse for. Results are outputed to .csv, with instant feedback about results also offered in console.
