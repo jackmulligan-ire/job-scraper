@@ -3,7 +3,7 @@ Scrapes job postings from indeed. You can search by country and city location. Y
 
 Set-up: Change all directories to a file on your device.
 
-Learned: Functional programming, making http requests, writing to a .csv file, using JSON, using random library, using time libraary.
+Learned: Functional programming, making http requests, writing to a .csv file, using JSON, using random library, using time library.
 
 ## Functions available in job-scraper.py:
 
