@@ -16,3 +16,7 @@ Learned: Functional programming, making http requests, writing to a .csv file, u
 ## job-listing-analyser.py
 
 Listings analyser programme, based in console. Enter in search term, country and location to get started. You'll then be prompted to input number of scraped listings to be more closely analysed, as well as the keywords you'd like to analyse for. Results are outputed to .csv, with instant feedback about results also offered in console.
+
+## job-listing-spider.py
+
+Future spider.
